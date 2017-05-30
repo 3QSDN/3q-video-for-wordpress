@@ -1,14 +1,14 @@
 <?php
 /**
- * @package sdnPlayer
+ * @package 3q
  * @version 1.2
  */
 /*
-Plugin Name: 3q video player for wordpress
+Plugin Name: 3q video player for wordpress (minimalistic)
 Plugin URI: https://www.3qsdn.com
 Description: Embed Videos from 3Q SDN
-Author: Julius Thomas
-Version: 1.2
+Author: 3Q GmbH
+Version: 1.0
 */
 
 $plugin_dir = plugin_dir_path( __FILE__ );
@@ -30,7 +30,7 @@ function add_sdn_header(){
     wp_enqueue_script( 'sdn3' );
 }
 
-/* [sdn] */
+/* [3q] */
 function sdn_shortcode($atts, $content=null){
 
     $_userToken = 0;
@@ -48,9 +48,11 @@ function sdn_shortcode($atts, $content=null){
         'vast' => $options['vast'],
         'layout' => $options['responsive'],
     ), $atts));
+
     if(!empty($atts["usertoken"])) {
         $_userToken = $atts["usertoken"];
     }
+
     if(empty($atts["autoplay"])) {
         $atts["autoplay"] = 'false';
     }
@@ -61,6 +63,9 @@ function sdn_shortcode($atts, $content=null){
     if(!empty($atts["layout"])) {
         $atts["width"] = '100%25';
         $atts["width"] = '360';
+    } else {
+        $atts["width"] = '100%25';
+        $atts["width"] = '360';
     }
 
     $id = 'player_'.generateHash();
@@ -69,13 +74,13 @@ function sdn_shortcode($atts, $content=null){
 
     $sdnplayer = '
         <div id="'.$id.'" style="width:'.$atts["width"].' height="'.$atts["height"].'"></div>
-        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container=sdnPlayer&autoplay=false&width='.$atts["width"].'&height='.$atts["height"].'&preload=false"></script>
+        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay=false&width='.$atts["width"].'&height='.$atts["height"].'&preload=false"></script>
 		';
     } else {
 
     $sdnplayer = '
-        <div id="'.$id.'"></div
-        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container=sdnPlayer&autoplay=false&width='.$atts["width"].'&height='.$atts["height"].'"></script>
+        <div id="'.$id.'"></div>
+        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay=false&width='.$atts["width"].'&height='.$atts["height"].'"></script>
         ';
     }
 
@@ -95,17 +100,12 @@ function generateHash($length = 16)
     }
     $i = 0;
     while ($i < $length) {
-        // pick a random character from the possible ones
         $char = substr($possible, mt_rand(0, $maxlength - 1), 1);
-        // have we already used this character in $password?
         if (!strstr($password, $char)) {
-            // no, so it's OK to add it onto the end of whatever we've already got...
             $password .= $char;
-            // ... and increase the counter by one
             $i++;
         }
     }
-    // done!
     return $password;
 }
 ?>

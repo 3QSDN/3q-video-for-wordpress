@@ -18,11 +18,9 @@ With the `responsive` layout, the width and height in this should yield correct 
 ## Attributes
 
 **data-id** (required)
-
 The sdnPlayoutId from 3Q SDN.
 
 **layout** (required)
-
 responsive
 
 **autoplay** (optional)
