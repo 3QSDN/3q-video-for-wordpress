@@ -74,13 +74,13 @@ function sdn_shortcode($atts, $content=null){
 
     $sdnplayer = '
         <div id="'.$id.'" style="width:'.$atts["width"].' height="'.$atts["height"].'"></div>
-        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay=false&width='.$atts["width"].'&height='.$atts["height"].'&preload=false"></script>
+        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay='.$atts["autoplay"].'&width='.$atts["width"].'&height='.$atts["height"].'&preload=false&layout=responsive"></script>
 		';
     } else {
 
     $sdnplayer = '
         <div id="'.$id.'"></div>
-        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay=false&width='.$atts["width"].'&height='.$atts["height"].'"></script>
+        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay='.$atts["autoplay"].'&width='.$atts["width"].'&height='.$atts["height"].'&layout=responsive"></script>
         ';
     }
 
