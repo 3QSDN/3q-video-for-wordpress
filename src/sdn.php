@@ -8,7 +8,7 @@ Plugin Name: 3q video player for wordpress (minimalistic)
 Plugin URI: https://www.3qsdn.com
 Description: Embed Videos from 3Q SDN
 Author: 3Q GmbH
-Version: 1.0
+Version: 1.1
 */
 
 $plugin_dir = plugin_dir_path( __FILE__ );
@@ -74,13 +74,13 @@ function sdn_shortcode($atts, $content=null){
 
     $sdnplayer = '
         <div id="'.$id.'" style="width:'.$atts["width"].' height="'.$atts["height"].'"></div>
-        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay='.$atts["autoplay"].'&width='.$atts["width"].'&height='.$atts["height"].'&preload=false&layout=responsive"></script>
+        <script type="text/javascript" src="https://playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay='.$atts["autoplay"].'&width='.$atts["width"].'&height='.$atts["height"].'&preload=false&layout=responsive"></script>
 		';
     } else {
 
     $sdnplayer = '
         <div id="'.$id.'"></div>
-        <script type="text/javascript" src="//playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay='.$atts["autoplay"].'&width='.$atts["width"].'&height='.$atts["height"].'&layout=responsive"></script>
+        <script type="text/javascript" src="https://playout.3qsdn.com/'.$atts["data-id"].'?&js=true&container='.$id.'&autoplay='.$atts["autoplay"].'&width='.$atts["width"].'&height='.$atts["height"].'&layout=responsive"></script>
         ';
     }
 
