@@ -1,14 +1,14 @@
 <?php
 /**
  * @package 3q
- * @version 1.2
+ * @version 1.3
  */
 /*
 Plugin Name: 3q video player for wordpress (minimalistic)
 Plugin URI: https://www.3qsdn.com
 Description: Embed Videos from 3Q SDN
 Author: 3Q GmbH
-Version: 1.1
+Version: 1.3
 */
 
 $plugin_dir = plugin_dir_path( __FILE__ );
